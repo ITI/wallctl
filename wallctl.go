@@ -78,7 +78,7 @@ func configWall(config Config, layout Layout) (error) {
         if p.WallID != 0 {
             panel := libwall.NewPanel(byte(p.WallID), serport, debug)
             panel.Set("source", libwall.Sources["dvi"])
-            err := panel.Set("wall", libwall.OFF)
+            err := panel.Set("vwallMode", libwall.OFF)
             if err != nil {
                 fmt.Fprintf(os.Stderr, "Error resetting panel %v: %v", p.Name, err)
             }
