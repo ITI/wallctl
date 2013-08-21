@@ -72,21 +72,25 @@ func configWall(config Config, layout Layout) (error) {
     }
 
     // Step 2: create all panels and set source to DVI
+    // Saddly this needs to be done is 2 loops
     panels := make(map[string]*libwall.Panel)
     for _,p := range config.Outputs {
         // we only do this for wall capable panels
         if p.WallID != 0 {
             panel := libwall.NewPanel(byte(p.WallID), serport, debug)
             panel.Set("source", libwall.Sources["dvi"])
-            err := panel.Set("vwallMode", libwall.OFF)
-            if err != nil {
-                fmt.Fprintf(os.Stderr, "Error resetting panel %v: %v", p.Name, err)
-            }
             panels[p.Name] = panel
         }
     }
     // Need to take a nap here so sources can settle
     time.Sleep(4 * time.Second)
+
+    for n, p := range panels {
+        err := p.Set("wall", libwall.OFF)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Error resetting panel %v: %v", n, err)
+        }
+    }
 
     // Step 3
     for _,p := range layout.PanelConfigs {
@@ -95,6 +99,7 @@ func configWall(config Config, layout Layout) (error) {
             panel.Set("source", libwall.Sources[p.Source])
         }
     }
+    time.Sleep(1 * time.Second)
 
     // Step 4/5
     for _,wall := range layout.VideoWalls {
