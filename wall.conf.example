@@ -1,0 +1,96 @@
+<wallconfig>
+<config>
+  <inputs>
+    <input name="tcipg1" port="1" />
+    <input name="tcipg2" port="2" />
+    <input name="tcipg3" port="3" />
+    <input name="tcipg4" port="4" />
+    <input name="slides" port="5" />
+  </inputs>
+
+  <outputs>
+    <output name="panel1" port="1" wallid="0" />
+    <output name="panel2" port="2" wallid="1" />
+    <output name="panel3" port="3" wallid="2" />
+    <output name="panel4" port="4" wallid="3" />
+    <output name="panel5" port="5" wallid="4" />
+    <output name="panel6" port="6" wallid="5" />
+    <output name="panel7" port="7" wallid="6" />
+    <output name="panel8" port="8" wallid="7" />
+    <output name="panel9" port="9" wallid="8" />
+    <output name="slides1" port="10" />
+    <output name="slides2" port="11" />
+  </outputs>
+</config>
+
+<layouts>
+  <layout name="reset">
+    <videoswitch>
+      <input name="slides">
+        <output>slides1</output>
+        <output>slides2</output>
+        <output>panel1</output>
+        <output>panel2</output>
+        <output>panel3</output>
+        <output>panel4</output>
+        <output>panel5</output>
+        <output>panel6</output>
+        <output>panel7</output>
+        <output>panel8</output>
+        <output>panel9</output>
+      </input>
+    </videoswitch>
+    <videowall>
+      <wall>
+        <size x="3" y="2" />
+        <panel pos="1" name="panel1" />
+        <panel pos="2" name="panel2" />
+        <panel pos="3" name="panel3" />
+        <panel pos="4" name="panel4" />
+        <panel pos="5" name="panel5" />
+        <panel pos="6" name="panel6" />
+      </wall>
+    </videowall>
+  </layout>
+
+  <layout name="test1">
+    <panelconfig>
+      <panel name="panel8">
+        <source>pc</source>
+      </panel>
+      <panel name="slides">
+        <source>pc</source>
+      </panel>
+    </panelconfig>
+    <videoswitch>
+      <input name="tcipg01">
+        <output>panel1</output>
+        <output>panel2</output>
+        <output>panel3</output>
+        <output>panel4</output>
+      </input>
+      <input name="tcipg02">
+        <output>panel5</output>
+        <output>panel6</output>
+      </input>
+      <input name="tcipg03">
+        <output>panel7</output>
+      </input>
+    </videoswitch>
+    <videowall>
+      <wall>
+        <size x="2" y="2" />
+        <panel pos="1" name="panel1" />
+        <panel pos="2" name="panel2" />
+        <panel pos="3" name="panel3" />
+        <panel pos="4" name="panel4" />
+      </wall>
+      <wall>
+        <size x="1" y="2" />
+        <panel pos="1" name="panel5" />
+        <panel pos="2" name="panel6" />
+      </wall>
+    </videowall>
+  </layout>
+</layouts>
+</wallconfig>
