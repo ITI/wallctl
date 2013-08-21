@@ -83,10 +83,10 @@ func configWall(config Config, layout Layout) (error) {
                 fmt.Fprintf(os.Stderr, "Error resetting panel %v: %v", p.Name, err)
             }
             panels[p.Name] = panel
-            // Need to take a nap here so sources can settle
-            time.Sleep(3 * time.Second)
         }
     }
+    // Need to take a nap here so sources can settle
+    time.Sleep(4 * time.Second)
 
     // Step 3
     for _,p := range layout.PanelConfigs {
