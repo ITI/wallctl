@@ -4,6 +4,7 @@ import (
     "fmt"
     "flag"
     "os"
+    "time"
 
     "iti/libnti"
     "iti/libwall"
@@ -79,6 +80,8 @@ func configWall(config Config, layout Layout) (error) {
             panel.Set("source", libwall.Sources["dvi"])
             panel.Set("wall", libwall.OFF)
             panels[p.Name] = panel
+            // Need to take a nap here so sources can settle
+            time.Sleep(3 * time.Second)
         }
     }
 
