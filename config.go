@@ -10,6 +10,7 @@ type Output struct {
     Name string `xml:"name,attr"`
     Port int `xml:"port,attr"`
     WallID int `xml:"wallid,attr"`
+    MacAddr string `xml:"mac,attr"`
 }
 
 type Input struct {
