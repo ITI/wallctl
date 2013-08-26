@@ -9,15 +9,15 @@
   </inputs>
 
   <outputs>
-    <output name="panel1" port="1" wallid="0" />
-    <output name="panel2" port="2" wallid="1" />
-    <output name="panel3" port="3" wallid="2" />
-    <output name="panel4" port="4" wallid="3" />
-    <output name="panel5" port="5" wallid="4" />
-    <output name="panel6" port="6" wallid="5" />
-    <output name="panel7" port="7" wallid="6" />
-    <output name="panel8" port="8" wallid="7" />
-    <output name="panel9" port="9" wallid="8" />
+    <output name="panel1" port="1" wallid="1" mac="c4:73:1e:c6:3e:b8" />
+    <output name="panel2" port="2" wallid="2" mac="c4:73:1e:c6:3e:ae" />
+    <output name="panel3" port="3" wallid="3" mac="c4:73:1e:c6:3e:b5" />
+    <output name="panel4" port="4" wallid="4" mac="e4:7c:f9:b6:62:3b" />
+    <output name="panel5" port="5" wallid="5" mac="e4:7c:f9:b6:0b:5f" />
+    <output name="panel6" port="6" wallid="6" mac="e4:7c:f9:b5:eb:88" />
+    <output name="panel7" port="7" wallid="7" mac="e4:7c:f9:b6:0a:29" />
+    <output name="panel8" port="8" wallid="8" mac="e4:7c:f9:b5:eb:99" />
+    <output name="panel9" port="9" wallid="9" mac="e4:7c:f9:b5:ea:5f" />
     <output name="slides1" port="10" />
     <output name="slides2" port="11" />
   </outputs>
