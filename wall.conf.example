@@ -1,10 +1,10 @@
 <wallconfig>
 <config>
   <inputs>
-    <input name="tcipg1" port="1" />
-    <input name="tcipg2" port="2" />
-    <input name="tcipg3" port="3" />
-    <input name="tcipg4" port="4" />
+    <input name="tcipg01" port="1" />
+    <input name="tcipg02" port="2" />
+    <input name="tcipg03" port="3" />
+    <input name="tcipg04" port="4" />
     <input name="slides" port="5" />
   </inputs>
 
