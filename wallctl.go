@@ -59,4 +59,3 @@ func main() {
     fmt.Fprintf(os.Stderr, "Configuration %s not found\n", who)
     os.Exit(4)
 }
-
