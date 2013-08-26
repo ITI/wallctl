@@ -4,6 +4,7 @@ import (
     "fmt"
     "os"
     "time"
+    "errors"
 
     "iti/libnti"
     "iti/libwall"
@@ -28,10 +29,18 @@ func configWall(config Config, layout Layout) (error) {
 
     // Step 1: Set up video switch
     for _, input := range layout.VideoSwitch {
-        fmt.Printf("Setting %s to ", input.Name)
+        iid, err := getInputID(input.Name, config.Inputs)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "Video Switch Error: %v\n", err)
+        }
+
         for _, x := range input.Outputs {
-            x = x
-            vswitch.SendCommand("ConnectSource", []byte{1, 2})
+            oid, err := getOutputID(x, config.Outputs)
+            if err != nil {
+                fmt.Fprintf(os.Stderr, "Video Switch Error: %v\n", err)
+            }
+            fmt.Printf("ConnectPort %v %v\n", iid, oid)
+            vswitch.SendCommand("ConnectSource", []byte{byte(iid), byte(oid)})
         }
         fmt.Printf("\n")
     }
@@ -77,4 +86,26 @@ func configWall(config Config, layout Layout) (error) {
         }
     }
     return nil
+}
+
+
+
+
+// Need interface here??
+func getInputID(input string, config []Input) (int, error) {
+    for _,i := range config {
+        if i.GetName() == input {
+            return i.GetPort(), nil
+        }
+    }
+    return 0, errors.New(fmt.Sprintf("Input %v not found", input))
+}
+
+func getOutputID(output string, config []Output) (int, error) {
+    for _,i := range config {
+        if i.GetName() == output {
+            return i.GetPort(), nil
+        }
+    }
+    return 0, errors.New(fmt.Sprintf("Input %v not found", output))
 }

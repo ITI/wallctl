@@ -12,10 +12,22 @@ type Output struct {
     WallID int `xml:"wallid,attr"`
     MacAddr string `xml:"mac,attr"`
 }
+func (v Output) GetName() (string) {
+    return v.Name
+}
+func (v Output) GetPort() (int) {
+    return v.Port
+}
 
 type Input struct {
     Name string `xml:"name,attr"`
     Port int `xml:"port,attr"`
+}
+func (v Input) GetName() (string) {
+    return v.Name
+}
+func (v Input) GetPort() (int) {
+    return v.Port
 }
 
 type Config struct {
