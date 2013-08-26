@@ -3,6 +3,8 @@ package main
 import (
     "errors"
 
+    "iti/libwall"
+
     wol "github.com/ghthor/gowol"
 )
 
@@ -11,10 +13,15 @@ func doPower(config *Config) (error) {
         return errors.New("Either on or off, not both")
     }
 
-
-
-    for _,p := range config.Outputs {
-        if pon {
+    if poff {
+        allpanels := libwall.NewPanel(byte(0xfe), serport, debug)
+        err := allpanels.Set("power", libwall.OFF)
+        if err != nil {
+            return err
+        }
+    }
+    if pon {
+        for _,p := range config.Outputs {
             if m := p.MacAddr; m != "" {
                 err := wol.SendMagicPacket(m, ipbcast)
                 if err != nil {
@@ -22,10 +29,7 @@ func doPower(config *Config) (error) {
                 }
             }
         }
-        if poff {
-        }
     }
-
 
     return nil
 }
