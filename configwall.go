@@ -24,7 +24,7 @@ func configWall(config Config, layout Layout) (error) {
     vswitch := libnti.Veemux{
         IP: ntiaddr,
         Port: ntiport,
-        Debug: debug,
+        Debug: debugnti,
     }
 
     // Step 1: Set up video switch
@@ -39,8 +39,9 @@ func configWall(config Config, layout Layout) (error) {
             if err != nil {
                 fmt.Fprintf(os.Stderr, "Video Switch Error: %v\n", err)
             }
-            fmt.Printf("ConnectPort %v %v\n", iid, oid)
-            vswitch.SendCommand("ConnectSource", []byte{byte(iid), byte(oid)})
+            fmt.Printf("ConnectPort %v,%v\n", iid, oid)
+            vswitch.SendCommand("ConnectSource",
+                fmt.Sprintf("%v,%v", iid, oid))
         }
         fmt.Printf("\n")
     }
@@ -50,7 +51,7 @@ func configWall(config Config, layout Layout) (error) {
     for _,p := range config.Outputs {
         // we only do this for wall capable panels
         if p.WallID != 0 {
-            panel := libwall.NewPanel(byte(p.WallID), serport, debug)
+            panel := libwall.NewPanel(byte(p.WallID), serport, debugwall)
             panel.Set("source", libwall.Sources["dvi"])
             err := panel.Set("vwallMode", libwall.OFF)
             if err != nil {

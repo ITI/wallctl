@@ -10,7 +10,7 @@ import (
 var (
     who, configfile, ntiaddr, serport, ipbcast string
     ntiport int
-    pon, poff, debug bool
+    pon, poff, debugnti, debugwall bool
 )
 
 
@@ -20,11 +20,12 @@ func main() {
     flag.StringVar(&ipbcast, "b", "192.168.80.255", "Broadcast address for WOL")
     flag.StringVar(&who, "c", "", "Config section to load")
     flag.StringVar(&configfile, "f", "./wall.conf", "Config file to load")
-    flag.StringVar(&ntiaddr, "i", "192.168.80.6",
+    flag.StringVar(&ntiaddr, "i", "192.168.80.4",
         "IP Address of the NTI switch")
     flag.IntVar(&ntiport, "p", 2005, "TCP Port on the NTI switch")
     flag.StringVar(&serport, "s", "/dev/ttyS0", "Serial port of the videowall")
-    flag.BoolVar(&debug, "d", false, "Run in debug mode")
+    flag.BoolVar(&debugnti, "dn", false, "Run video switch in debug mode")
+    flag.BoolVar(&debugwall, "dw", false, "Run wall in debug mode")
     flag.Parse()
 
     config, err := parseConfig(configfile)

@@ -14,7 +14,7 @@ func doPower(config *Config) (error) {
     }
 
     if poff {
-        allpanels := libwall.NewPanel(byte(0xfe), serport, debug)
+        allpanels := libwall.NewPanel(byte(0xfe), serport, debugwall)
         err := allpanels.Set("power", libwall.OFF)
         if err != nil {
             return err
