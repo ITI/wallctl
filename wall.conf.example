@@ -5,7 +5,7 @@
     <input name="tcipg02" port="2" />
     <input name="tcipg03" port="3" />
     <input name="tcipg04" port="4" />
-    <input name="slides" port="5" />
+    <input name="slides" port="14" />
   </inputs>
 
   <outputs>
@@ -24,6 +24,51 @@
 </config>
 
 <layouts>
+
+
+  <layout name="oscope">
+    <videoswitch>
+      <input name="slides">
+        <output>slides1</output>
+        <output>slides2</output>
+        <output>panel3</output>
+        <output>panel6</output>
+        <output>panel7</output>
+        <output>panel8</output>
+        <output>panel9</output>
+      </input>
+      <input name="tcipg01">
+        <output>panel1</output>
+        <output>panel2</output>
+        <output>panel4</output>
+        <output>panel5</output>
+      </input>
+    </videoswitch>
+    <videowall>
+      <wall>
+        <size x="2" y="2" />
+        <panel pos="1" name="panel1" />
+        <panel pos="2" name="panel2" />
+        <panel pos="3" name="panel4" />
+        <panel pos="4" name="panel5" />
+      </wall>
+      <wall>
+        <size x="3" y="1" />
+        <panel pos="1" name="panel7" />
+        <panel pos="2" name="panel8" />
+        <panel pos="3" name="panel9" />
+      </wall>
+    </videowall>
+  </layout>
+
+
+
+
+
+
+
+
+
   <layout name="reset">
     <videoswitch>
       <input name="slides">

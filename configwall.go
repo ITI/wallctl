@@ -49,11 +49,11 @@ func configWall(config Config, layout Layout) (error) {
     // Step 2: create all panels and set source to DVI
 
     allpanels := libwall.NewPanel(byte(0xfe), serport, debugwall)
-    //err := allpanels.Set("vwallMode", libwall.OFF)
-    //if err != nil {
-    //    fmt.Fprintf(os.Stderr, "Error resetting panels: %v", err)
-    //}
-    err := allpanels.Set("source", libwall.Sources["dvi"])
+    err := allpanels.Set("wall", libwall.OFF)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error resetting panels: %v", err)
+    }
+    err = allpanels.Set("source", libwall.Sources["dvi"])
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error resetting panels: %v", err)
     }
@@ -63,7 +63,6 @@ func configWall(config Config, layout Layout) (error) {
     for _,p := range config.Outputs {
         if p.WallID != 0 {
             panel := libwall.NewPanel(byte(p.WallID), serport, debugwall)
-            panel.Set("vwallMode", libwall.OFF)
             panels[p.Name] = panel
         }
     }
@@ -94,7 +93,6 @@ func configWall(config Config, layout Layout) (error) {
     }
     return nil
 }
-
 
 
 
