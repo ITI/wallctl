@@ -7,6 +7,8 @@
     <input name="tcipg04" port="4" />
     <input name="slides" port="14" />
     <input name="hdmi1" port="15" />
+    <input name="hdmi2" port="16" />
+
   </inputs>
 
   <outputs>
@@ -25,7 +27,24 @@
 </config>
 
 <layouts>
-  <layout name="wsu1">
+  <layout name="logos">
+    <videoswitch>
+      <input name="hdmi1">
+        <output>slides1</output>
+        <output>slides2</output>
+        <output>panel1</output>
+        <output>panel2</output>
+        <output>panel3</output>
+        <output>panel4</output>
+        <output>panel5</output>
+        <output>panel6</output>
+        <output>panel7</output>
+        <output>panel8</output>
+        <output>panel9</output>
+      </input>
+    </videoswitch>
+  </layout>
+  <layout name="anurag">
     <videoswitch>
       <input name="slides">
         <output>slides1</output>
@@ -45,78 +64,10 @@
       </input>
       <input name="hdmi1">
         <output>panel1</output>
-        <output>panel2</output>
         <output>panel3</output>
-      </input>
-    </videoswitch>
-    <videowall>
-      <wall>
-        <size x="2" y="2" />
-        <panel pos="1" name="panel4" />
-        <panel pos="2" name="panel5" />
-        <panel pos="3" name="panel7" />
-        <panel pos="4" name="panel8" />
-      </wall>
-    </videowall>
-  </layout>
-  <layout name="wsu2">
-    <videoswitch>
-      <input name="slides">
-        <output>slides1</output>
-        <output>slides2</output>
-      </input>
-      <input name="tcipg01">
-        <output>panel6</output>
-      </input>
-      <input name="tcipg02">
-        <output>panel4</output>
-        <output>panel5</output>
-        <output>panel7</output>
-        <output>panel8</output>
-      </input>
-      <input name="tcipg03">
-        <output>panel9</output>
-      </input>
-      <input name="hdmi1">
-        <output>panel1</output>
-        <output>panel2</output>
-        <output>panel3</output>
-      </input>
-    </videoswitch>
-    <videowall>
-      <wall>
-        <size x="2" y="2" />
-        <panel pos="1" name="panel4" />
-        <panel pos="2" name="panel5" />
-        <panel pos="3" name="panel7" />
-        <panel pos="4" name="panel8" />
-      </wall>
-    </videowall>
-  </layout>
-  <layout name="wsu3">
-    <videoswitch>
-      <input name="slides">
-        <output>slides1</output>
-        <output>slides2</output>
-      </input>
-      <input name="tcipg01">
-        <output>panel6</output>
-      </input>
-      <input name="tcipg02">
-        <output>panel4</output>
-        <output>panel5</output>
-        <output>panel7</output>
-        <output>panel8</output>
-      </input>
-      <input name="tcipg03">
-        <output>panel9</output>
       </input>
       <input name="tcipg04">
-        <output>panel1</output>
         <output>panel2</output>
-      </input>
-      <input name="hdmi1">
-        <output>panel3</output>
       </input>
     </videoswitch>
     <videowall>
@@ -129,7 +80,7 @@
       </wall>
     </videowall>
   </layout>
-  <layout name="oscope">
+  <layout name="thomas">
     <videoswitch>
       <input name="slides">
         <output>slides1</output>
@@ -178,16 +129,16 @@
         <output>slides2</output>
       </input>
       <input name="tcipg01">
-        <output>panel7</output>
-        <output>panel8</output>
+        <output>panel1</output>
+        <output>panel2</output>
       </input>
       <input name="tcipg02">
         <output>panel3</output>
         <output>panel6</output>
       </input>
       <input name="tcipg04">
-        <output>panel1</output>
-        <output>panel2</output>
+        <output>panel7</output>
+        <output>panel8</output>
         <output>panel4</output>
         <output>panel5</output>
       </input>
@@ -195,15 +146,15 @@
     <videowall>
       <wall>
         <size x="2" y="1" />
-        <panel pos="1" name="panel7" />
-        <panel pos="2" name="panel8" />
+        <panel pos="1" name="panel1" />
+        <panel pos="2" name="panel2" />
       </wall>
       <wall>
         <size x="2" y="2" />
-        <panel pos="1" name="panel1" />
-        <panel pos="2" name="panel2" />
-        <panel pos="3" name="panel4" />
-        <panel pos="4" name="panel5" />
+        <panel pos="1" name="panel4" />
+        <panel pos="2" name="panel5" />
+        <panel pos="3" name="panel7" />
+        <panel pos="4" name="panel8" />
       </wall>
       <wall> 
         <size x="1" y="2" />
@@ -212,9 +163,40 @@
       </wall>
     </videowall>
   </layout>
-
-
-
+  <layout name="peter">
+    <videoswitch>
+      <input name="hdmi2">
+        <output>panel1</output>
+        <output>panel2</output>
+        <output>panel4</output>
+        <output>panel5</output>
+        <output>panel7</output>
+        <output>panel8</output>
+      </input>
+      <input name="tcipg01">
+        <output>panel3</output>
+      </input>
+      <input name="hdmi1">
+        <output>panel6</output>
+        <output>panel9</output>
+      </input>
+      <input name="slides">
+        <output>slides1</output>
+        <output>slides2</output>
+      </input>
+    </videoswitch>
+    <videowall>
+      <wall>
+        <size x="2" y="3" />
+        <panel pos="1" name="panel1" />
+        <panel pos="2" name="panel2" />
+        <panel pos="3" name="panel4" />
+        <panel pos="4" name="panel5" />
+        <panel pos="5" name="panel7" />
+        <panel pos="6" name="panel8" />
+      </wall>
+    </videowall>
+  </layout>
   <layout name="prosper">
     <videoswitch>
       <input name="tcipg03">
@@ -241,25 +223,5 @@
       </wall>
     </videowall>
   </layout>
-
-
-  <layout name="reset">
-    <videoswitch>
-      <input name="hdmi1">
-        <output>slides1</output>
-        <output>slides2</output>
-        <output>panel1</output>
-        <output>panel2</output>
-        <output>panel3</output>
-        <output>panel4</output>
-        <output>panel5</output>
-        <output>panel6</output>
-        <output>panel7</output>
-        <output>panel8</output>
-        <output>panel9</output>
-      </input>
-    </videoswitch>
-  </layout>
-
 </layouts>
 </wallconfig>
