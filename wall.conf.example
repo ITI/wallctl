@@ -27,7 +27,7 @@
 </config>
 
 <layouts>
-  <layout name="logos">
+  <layout name="all">
     <videoswitch>
       <input name="hdmi1">
         <output>slides1</output>
@@ -44,7 +44,7 @@
       </input>
     </videoswitch>
   </layout>
-  <layout name="anurag">
+  <layout name="l1">
     <videoswitch>
       <input name="slides">
         <output>slides1</output>
@@ -80,7 +80,7 @@
       </wall>
     </videowall>
   </layout>
-  <layout name="thomas">
+  <layout name="l2">
     <videoswitch>
       <input name="slides">
         <output>slides1</output>
@@ -119,7 +119,7 @@
       </wall>
     </videowall>
   </layout>
-  <layout name="ahmed">
+  <layout name="l3">
     <videoswitch>
       <input name="hdmi1">
         <output>panel9</output>
@@ -163,7 +163,7 @@
       </wall>
     </videowall>
   </layout>
-  <layout name="peter">
+  <layout name="l4">
     <videoswitch>
       <input name="hdmi2">
         <output>panel1</output>
@@ -197,7 +197,7 @@
       </wall>
     </videowall>
   </layout>
-  <layout name="prosper">
+  <layout name="l5">
     <videoswitch>
       <input name="tcipg03">
         <output>panel2</output>
