@@ -6,8 +6,8 @@ import (
     "time"
     "errors"
 
-    "iti/libnti"
-    "iti/libwall"
+    libnti "github.com/iti/libnti"
+    libwall "github.com/iti/libwall"
 )
 
 

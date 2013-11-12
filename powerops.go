@@ -3,7 +3,7 @@ package main
 import (
     "errors"
 
-    "iti/libwall"
+    libwall "github.com/iti/libwall"
 
     wol "github.com/ghthor/gowol"
 )
